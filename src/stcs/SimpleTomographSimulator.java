@@ -1,3 +1,4 @@
+package stcs;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
