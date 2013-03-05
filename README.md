@@ -1,0 +1,4 @@
+SimpleTomographSimulator
+========================
+
+Simple tomograph simulator.
