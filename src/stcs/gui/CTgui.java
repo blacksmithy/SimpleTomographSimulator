@@ -29,52 +29,58 @@ public class CTgui extends JFrame implements ActionListener, ChangeListener, Win
 	JSpinner colsSelector;
 	JButton btnReset;
 	JButton btnCt;
+	JButton btnRandom;
 
 	public CTgui() {
 		super("CTgui");
 		getContentPane().setLayout(null);
 		
 		srcPanel = new CTpanel(5,5);
-		srcPanel.setBounds(10, 11, 200, 200);
+		srcPanel.setBounds(10, 11, 225, 200);
 		getContentPane().add(srcPanel);
 		
 		colsSelector = new JSpinner();
 		colsSelector.setModel(new SpinnerNumberModel(5, 1, 20, 1));
-		colsSelector.setBounds(101, 220, 39, 20);
+		colsSelector.setBounds(101, 222, 39, 20);
 		getContentPane().add(colsSelector);
 		colsSelector.addChangeListener(this);
 		
 		rowsSelector = new JSpinner();
 		rowsSelector.setModel(new SpinnerNumberModel(5, 1, 20, 1));
-		rowsSelector.setBounds(101, 245, 39, 20);
+		rowsSelector.setBounds(101, 251, 39, 20);
 		getContentPane().add(rowsSelector);
 		rowsSelector.addChangeListener(this);
 		
 		JLabel lblIloKolumn = new JLabel("Ilo\u015B\u0107 kolumn");
-		lblIloKolumn.setBounds(10, 222, 91, 14);
+		lblIloKolumn.setBounds(10, 225, 91, 14);
 		getContentPane().add(lblIloKolumn);
 		
 		JLabel lblIloWierszy = new JLabel("Ilo\u015B\u0107 wierszy");
-		lblIloWierszy.setBounds(10, 247, 91, 14);
+		lblIloWierszy.setBounds(10, 254, 91, 14);
 		getContentPane().add(lblIloWierszy);
 		
 		btnReset = new JButton("reset");
-		btnReset.setBounds(152, 217, 57, 25);
+		btnReset.setBounds(150, 215, 80, 20);
 		getContentPane().add(btnReset);
 		btnReset.addActionListener(this);
 		
 		btnCt = new JButton("CT");
-		btnCt.setBounds(152, 242, 57, 25);
+		btnCt.setBounds(150, 255, 80, 20);
 		getContentPane().add(btnCt);
 		btnCt.addActionListener(this);
 		
 		outPanel = new CTpanel(srcPanel);
-		outPanel.setBounds(10, 274, 200, 200);
+		outPanel.setBounds(10, 285, 225, 200);
 		getContentPane().add(outPanel);
+		
+		btnRandom = new JButton("random");
+		btnRandom.setBounds(150, 235, 80, 20);
+		getContentPane().add(btnRandom);
+		btnRandom.addActionListener(this);
 		
 		setVisible(true);
 		setEnabled(true);
-		setSize(240, 525);
+		setSize(261, 530);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		addWindowListener(this);
 	}
@@ -97,6 +103,10 @@ public class CTgui extends JFrame implements ActionListener, ChangeListener, Win
 		{
 			outPanel.loadTab(RectangleMatrixCalculator.getOriginalMatrixApproximation(srcPanel.rowsSums, srcPanel.colsSums, 0.1));
 			//srcPanel.randomize();
+		}
+		if(e.getSource()==btnRandom)
+		{
+			srcPanel.randomize();
 		}
 		if(e.getSource()==btnReset)
 		{
@@ -136,5 +146,4 @@ public class CTgui extends JFrame implements ActionListener, ChangeListener, Win
 	public void windowDeiconified(WindowEvent arg0){}
 	public void windowIconified(WindowEvent arg0){}
 	public void windowOpened(WindowEvent arg0){}
-	
 }
