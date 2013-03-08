@@ -65,15 +65,13 @@ public class CTpanel extends JPanel implements MouseListener, ActionListener, Mo
 	
 	public void loadTab(double inTab[][])
 	{
+		min=max=inTab[0][0];
 		for(int r=0;r<rows;r++)
 		{
 		   for(int c=0;c<cols;c++)
 		   {
-			   if((inTab[r][c]<min)||(inTab[r][c]>max))
-			   {
-				   System.out.println(inTab[r][c]);
-				   throw new IllegalArgumentException();
-			   }
+			   if(inTab[r][c]<min){min=inTab[r][c];}
+			   if(inTab[r][c]>max){max=inTab[r][c];}
 		   }
 		}
 		tab=inTab;
