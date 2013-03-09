@@ -113,7 +113,7 @@ public class CTgui extends JFrame implements ActionListener, ChangeListener,
 
 			outPanel.loadTab(RectangleMatrixCalculator
 					.getOriginalMatrixApproximation(srcPanel.rowsSums,
-							srcPanel.colsSums, 0.1));
+							srcPanel.colsSums, 0.01));
 			// srcPanel.randomize();
 		}
 		if (e.getSource() == btnRandom) {
