@@ -1,14 +1,11 @@
 package stcs;
-import java.awt.EventQueue;
 
+import java.awt.EventQueue;
 
 import stcs.gui.CTgui;
 
-
 public class SimpleTomographSimulator {
 
-
-	
 	/**
 	 * Launch the application.
 	 */
@@ -16,7 +13,8 @@ public class SimpleTomographSimulator {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				CTgui window;
-				window=new CTgui();
+				window = new CTgui();
+				window.setVisible(true);
 			}
 		});
 	}
